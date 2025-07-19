@@ -30,9 +30,9 @@ export default function LoginForm({
   const formSchema = z.object({
     email: z.string().email(t('email')),
     password: z.string(),
-    cf_token:
-      verify.enable_login_verify && verify.turnstile_site_key ? z.string() : z.string().optional(),
+    cf_token: z.string().optional(),
   });
+  
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: initialValues,
@@ -57,7 +57,7 @@ export default function LoginForm({
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input placeholder='Enter your email...' type='email' {...field} />
+                  <Input placeholder={t('accbox')} type='email' {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -69,7 +69,7 @@ export default function LoginForm({
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input placeholder='Enter your password...' type='password' {...field} />
+                  <Input placeholder={t('passbox')} type='password' {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

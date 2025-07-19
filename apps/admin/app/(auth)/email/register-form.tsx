@@ -98,7 +98,7 @@ export default function RegisterForm({
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input placeholder='Enter your email...' type='email' {...field} />
+                    <Input placeholder={t('accbox')} type='email' {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -110,7 +110,7 @@ export default function RegisterForm({
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input placeholder='Enter your password...' type='password' {...field} />
+                    <Input placeholder={t('passbox')} type='password' {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -124,7 +124,7 @@ export default function RegisterForm({
                   <FormControl>
                     <Input
                       disabled={loading}
-                      placeholder='Enter password again...'
+                      placeholder={t('passbox2')}
                       type='password'
                       {...field}
                     />

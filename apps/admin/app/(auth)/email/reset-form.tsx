@@ -38,6 +38,7 @@ export default function ResetForm({
         ? z.string()
         : z.string().nullish(),
   });
+  
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: initialValues,
@@ -62,7 +63,7 @@ export default function ResetForm({
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input placeholder='Enter your email...' type='email' {...field} />
+                  <Input placeholder={t('emailbox')} type='email' {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -77,7 +78,7 @@ export default function ResetForm({
                   <div className='flex items-center gap-2'>
                     <Input
                       disabled={loading}
-                      placeholder='Enter code...'
+                      placeholder={t('codebox')}
                       type='text'
                       {...field}
                       value={field.value as string}
@@ -101,7 +102,7 @@ export default function ResetForm({
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input placeholder='Enter your new password...' type='password' {...field} />
+                  <Input placeholder={t('passbox')} type='password' {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
